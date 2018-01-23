@@ -1,0 +1,79 @@
+<Anasayfa>:
+    BoxLayout
+        id: kullanici_sayfasi
+        orientation: 'vertical'
+        padding: [10,50,10,50]
+        spacing: 50
+
+        Label:
+            text: 'Hoş Geldin Utopian'
+            font_size: 32
+
+        BoxLayout:
+            orientation: 'vertical'
+
+            Label:
+                text: 'Kullanici adi'
+                font_size: 18
+                halign: 'left'
+                text_size: root.width-20, 20
+
+            TextInput:
+                id: kadi
+                multiline:False
+                font_size: 28
+
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                text: 'sifre'
+                halign: 'left'
+                font_size: 18
+                text_size: root.width-20, 20
+
+            TextInput:
+                id: sifre
+                multiline:False
+                password:True
+                font_size: 28
+
+        Button:
+            text: 'Giriş'
+            font_size: 24
+            on_press: root.giris(kadi.text, sifre.text)
+
+<giris>:
+    BoxLayout:
+        orientation: 'vertical'
+        TextInput:
+            id: degisinput
+            font_size: 15
+            size_hint_y: None
+            height: 100
+            text: 'Utopian'
+
+        Label:
+            id: degisken
+            text: degisinput.text
+            font_size: 15
+        Label:
+            text: "Başarılı Giriş"
+            font_size: 32
+        Button:
+            text: "Çıkış"
+            font_size: 24
+            on_press: root.disconnect()
+	    
+
+<hatali>:
+    BoxLayout:
+        orientation: 'vertical'
+
+        Label:
+            text: "Hatalı Giriş Tekrar dene"
+            font_size: 32
+        Button:
+            text: "Tekrar Dene"
+            font_size: 24
+            on_press: root.disconnect()
+    
